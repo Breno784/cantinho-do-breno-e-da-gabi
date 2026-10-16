@@ -13,9 +13,8 @@
       --rosa-batom: #C72C41;
       --rosa-suave: #F8B195;
       --vinho-papel: #5C2533;
-      --papel-jornal: #F4EAE1;
       --texto-jornal: #2B2625;
-      --fita-adesiva: rgba(255, 255, 255, 0.6);
+      --fita-adesiva: rgba(255, 255, 255, 0.65);
     }
 
     * {
@@ -25,26 +24,27 @@
     }
 
     body {
-      /* Fundo com textura e estilo de papel vintage de jornal */
-      background-color: var(--papel-jornal);
-      background-image: 
-        radial-gradient(rgba(0, 0, 0, 0.04) 1px, transparent 0),
-        linear-gradient(to right, rgba(199, 44, 65, 0.05) 1px, transparent 1px);
-      background-size: 20px 20px, 100% 30px;
+      /* Imagem do seu Fundo de Jornal em JPEG */
+      background-image: url('fundo-jornal.jpeg');
+      background-repeat: repeat;
+      background-position: center;
+      background-attachment: fixed;
+      background-size: auto;
+      
       color: var(--texto-jornal);
       font-family: 'Poppins', sans-serif;
       line-height: 1.6;
       padding-bottom: 60px;
     }
 
-    /* Cabeçalho estilo capa de jornal/diário */
     header {
       text-align: center;
-      padding: 50px 20px 30px;
+      padding: 60px 20px 30px;
       border-bottom: 3px double var(--rosa-batom);
       margin-bottom: 40px;
       position: relative;
-      background: rgba(255, 255, 255, 0.4);
+      background: rgba(255, 255, 255, 0.25);
+      backdrop-filter: blur(2px);
     }
 
     header h1 {
@@ -61,35 +61,26 @@
       color: var(--rosa-batom);
     }
 
-    .beijo-decorativo {
-      position: absolute;
-      font-size: 2.5rem;
-      opacity: 0.8;
-      user-select: none;
-    }
-
-    .beijo-1 { top: 15px; left: 10%; transform: rotate(-15deg); }
-    .beijo-2 { bottom: 10px; right: 12%; transform: rotate(20deg); }
-
-    /* Layout principal */
+    /* Container Principal */
     .container {
       max-width: 750px;
       margin: 0 auto;
       padding: 0 20px;
+      position: relative;
     }
 
-    /* Cards no estilo retalho/papel colado */
+    /* Cards de Papel Colado */
     .card {
-      background: #FFFFFF;
+      background: rgba(255, 255, 255, 0.92);
       border-radius: 4px;
       padding: 30px;
-      margin-bottom: 40px;
-      box-shadow: 5px 8px 20px rgba(0,0,0,0.08);
+      margin-bottom: 50px;
+      box-shadow: 5px 8px 20px rgba(0,0,0,0.1);
       position: relative;
       border: 1px solid #E2D7CD;
     }
 
-    /* Efeito de Fita Adesiva colando o card */
+    /* Efeito de Fita Adesiva no Card */
     .card::before {
       content: "";
       position: absolute;
@@ -112,7 +103,7 @@
       padding-bottom: 8px;
     }
 
-    /* Estilo Polaroide para as fotos */
+    /* Foto Estilo Polaroide */
     .polaroide {
       background: #FFF;
       padding: 12px 12px 35px 12px;
@@ -132,7 +123,6 @@
       height: 280px;
       object-fit: cover;
       display: block;
-      filter: sepia(10%);
     }
 
     .polaroide .legenda {
@@ -143,7 +133,7 @@
       margin-top: 10px;
     }
 
-    /* Listas estilo diário */
+    /* Lista de Itens */
     .lista-item {
       background: #FAF4EF;
       padding: 12px 18px;
@@ -153,7 +143,7 @@
       font-size: 0.95rem;
     }
 
-    /* Carta escrita à mão */
+    /* Carta Manuscrita */
     .cartinha {
       background: #FFFDF9;
       border: 1px solid #EADCD0;
@@ -166,14 +156,21 @@
       position: relative;
     }
 
-    .cartinha::after {
-      content: "💋";
+    /* CLASSE PARA IMAGENS DE BEIJO E CORAÇÃO SEM QUADRADO/BORDA */
+    .decoracao-flutuante {
       position: absolute;
-      bottom: 10px;
-      right: 15px;
-      font-size: 2rem;
-      opacity: 0.85;
+      pointer-events: none;
+      z-index: 10;
+      background: transparent !important;
+      border: none !important;
+      box-shadow: none !important;
     }
+
+    /* Ajuste de Posições dos Elementos Decorativos */
+    .beijo-1 { top: -25px; right: -20px; width: 75px; transform: rotate(15deg); }
+    .beijo-2 { bottom: -20px; left: -25px; width: 80px; transform: rotate(-20deg); }
+    .coracao-1 { top: 15px; left: -30px; width: 60px; transform: rotate(-10deg); }
+    .coracao-2 { bottom: 20px; right: -25px; width: 65px; transform: rotate(12deg); }
 
     footer {
       text-align: center;
@@ -187,8 +184,10 @@
 <body>
 
   <header>
-    <span class="beijo-decorativo beijo-1">💋</span>
-    <span class="beijo-decorativo beijo-2">💋</span>
+    <!-- Espaço para Beijos / Corações no Cabeçalho (Adicione as imagens PNG com fundo transparente) -->
+    <img src="beijo-topo.png" alt="" class="decoracao-flutuante beijo-1">
+    <img src="coracao-topo.png" alt="" class="decoracao-flutuante coracao-1">
+
     <h1>Nosso Diário de Memórias</h1>
     <p>Para o meu amor, Gabi 💖</p>
   </header>
@@ -197,6 +196,9 @@
 
     <!-- Nossos Momentos -->
     <div class="card">
+      <!-- Espaço para adesivo/beijo na borda -->
+      <img src="beijo-batom.png" alt="" class="decoracao-flutuante beijo-1">
+      
       <h2>🌟 Nossos Momentos</h2>
       
       <div class="polaroide">
@@ -210,6 +212,8 @@
 
     <!-- Nossas Conquistas -->
     <div class="card">
+      <img src="coracao-adesivo.png" alt="" class="decoracao-flutuante coracao-1">
+
       <h2>🏆 Nossas Conquistas</h2>
       
       <div class="polaroide" style="transform: rotate(2deg);">
@@ -223,6 +227,8 @@
 
     <!-- Nossas Músicas -->
     <div class="card">
+      <img src="beijo-batom-2.png" alt="" class="decoracao-flutuante beijo-2">
+
       <h2>🎵 Nossas Músicas</h2>
       <p style="margin-bottom: 15px; font-style: italic;">A trilha sonora do nosso amor:</p>
       
@@ -232,6 +238,8 @@
 
     <!-- Cantinho dos Salsichas -->
     <div class="card">
+      <img src="coracao-adesivo-2.png" alt="" class="decoracao-flutuante coracao-2">
+
       <h2>🐾 Nossos Futuros Salsichas</h2>
       
       <div class="polaroide" style="transform: rotate(-1deg);">
@@ -246,6 +254,8 @@
 
     <!-- Recadinhos pro Futuro -->
     <div class="card">
+      <img src="beijo-batom.png" alt="" class="decoracao-flutuante beijo-1">
+
       <h2>💌 Recadinho pro Futuro</h2>
       <div class="cartinha">
         "Para a minha bb, Gabi do futuro: espero que quando estiver lendo isso daqui a 8 ou 10 anos, a gente esteja ainda mais felizes, morando juntos e lembrando do começo de tudo com o maior carinho do mundo."
