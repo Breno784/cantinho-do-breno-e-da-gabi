@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Nosso Cantinho 💛 Gabi & Você</title>
+  <style>
+    :root {
+      --amarelo-suave: #FFF4D0;
+      --amarelo-quente: #E0A926;
+      --laranja-terroso: #D97736;
+      --rosa-queimado: #C85A72;
+      --fundo: #FFFBF5;
+      --texto: #4A3E3D;
+      --card-fundo: #FFFFFF;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+
+    body {
+      background-color: var(--fundo);
+      color: var(--texto);
+      line-height: 1.6;
+      padding-bottom: 50px;
+    }
+
+    header {
+      background: linear-gradient(135deg, var(--amarelo-quente), var(--laranja-terroso), var(--rosa-queimado));
+      color: white;
+      text-align: center;
+      padding: 60px 20px;
+      border-bottom-left-radius: 30px;
+      border-bottom-right-radius: 30px;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    }
+
+    header h1 {
+      font-size: 2.5rem;
+      margin-bottom: 10px;
+      font-weight: bold;
+    }
+
+    header p {
+      font-size: 1.2rem;
+      opacity: 0.95;
+    }
+
+    .coracoes-topo {
+      font-size: 1.5rem;
+      margin-top: 10px;
+    }
+
+    .container {
+      max-width: 800px;
+      margin: 30px auto;
+      padding: 0 20px;
+    }
+
+    .card {
+      background: var(--card-fundo);
+      border-radius: 20px;
+      padding: 25px;
+      margin-bottom: 25px;
+      box-shadow: 0 4px 12px rgba(217, 119, 54, 0.08);
+      border-left: 6px solid var(--laranja-terroso);
+      transition: transform 0.2s ease;
+    }
+
+    .card:hover {
+      transform: translateY(-3px);
+    }
+
+    .card.rosa {
+      border-left-color: var(--rosa-queimado);
+    }
+
+    .card.amarelo {
+      border-left-color: var(--amarelo-quente);
+    }
+
+    .card h2 {
+      color: var(--texto);
+      font-size: 1.5rem;
+      margin-bottom: 15px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .lista-item {
+      background: var(--amarelo-suave);
+      padding: 12px 18px;
+      border-radius: 12px;
+      margin-bottom: 10px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .cartinha {
+      background: #FFF0F3;
+      border: 2px dashed var(--rosa-queimado);
+      border-radius: 15px;
+      padding: 20px;
+      font-style: italic;
+      color: #5A3540;
+    }
+
+    footer {
+      text-align: center;
+      color: var(--rosa-queimado);
+      font-weight: bold;
+      margin-top: 40px;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>Nosso Cantinho 💛 Gabi & Você</h1>
+    <p>Colecionando momentos, memórias e o nosso amor</p>
+    <div class="coracoes-topo">💖 🐾 🧡 💖 🐾 🧡</div>
+  </header>
+
+  <div class="container">
+
+    <!-- Nossos Momentos -->
+    <div class="card amarelo">
+      <h2>🌟 Nossos Momentos</h2>
+      <p>Um espaço para guardar nossos encontros, viagens e dias inesquecíveis juntas/os.</p>
+      <br>
+      <div class="lista-item">📸 <strong>Nosso primeiro encontro:</strong> [Escreva aqui como foi]</div>
+      <div class="lista-item">🏖️ <strong>Nossa primeira viagem:</strong> [Lugar e data]</div>
+      <div class="lista-item">🍕 <strong>O dia mais engraçado juntos:</strong> [Adicione a história]</div>
+    </div>
+
+    <!-- Nossas Conquistas -->
+    <div class="card rosa">
+      <h2>🏆 Nossas Conquistas</h2>
+      <p>Tudo o que construímos e superamos lado a lado!</p>
+      <br>
+      <div class="lista-item">💍 O início do nosso namoro</div>
+      <div class="lista-item">🎉 Conquistas individuais que comemoramos juntos</div>
+      <div class="lista-item">✨ Cada passo rumo aos nossos planos futuros</div>
+    </div>
+
+    <!-- Nossas Músicas -->
+    <div class="card">
+      <h2>🎵 Nossas Músicas</h2>
+      <p>A trilha sonora da nossa história de amor:</p>
+      <br>
+      <div class="lista-item">🎶 A música que me faz lembrar de você</div>
+      <div class="lista-item">💃 A música do nosso namoro</div>
+      <div class="lista-item">🎧 Nossa playlist para viagens de carro</div>
+    </div>
+
+    <!-- Nossa Família e Amigos -->
+    <div class="card rosa">
+      <h2>👨‍👩‍👧 Nossa Família e Amor</h2>
+      <p>As pessoas especiais que fazem parte do nosso caminho.</p>
+      <br>
+      <div class="cartinha">
+        "Com você, construir memórias é a melhor parte dos meus dias." 💖
+      </div>
+    </div>
+
+    <!-- Cantinho dos Salsichas -->
+    <div class="card amarelo">
+      <h2>🐾 Nossos Futuros Salsichas</h2>
+      <p>Nosso projeto de vida para daqui a alguns anos!</p>
+      <br>
+      <div class="cartinha" style="background: #FFFDF0; border-color: var(--amarelo-quente); color: #5A4818;">
+        🐶 <strong>Nosso Sonho:</strong> Quando morarmos juntos na nossa casinha, vamos ter nossos cachorrinhos salsichas (Dachshunds) correndo pela sala! Vai ser o nosso lar perfeito! 🐾💛
+      </div>
+    </div>
+
+    <!-- Recadinhos pro Futuro -->
+    <div class="card rosa">
+      <h2>💌 Recadinhos pro Futuro</h2>
+      <p>Para abrirmos e lermos daqui a 8 ou 10 anos...</p>
+      <br>
+      <div class="cartinha">
+        "Para a Gabi do futuro: espero que quando estiver lendo isso, a gente já esteja morando juntos, rodeados de salsichinhas e ainda mais felizes do que no dia em que criei este site para você." ✨🌸
+      </div>
+    </div>
+
+  </div>
+
+  <footer>
+    Feito com todo o amor do mundo para a Gabi 💖
+  </footer>
+
+</body>
+</html>
