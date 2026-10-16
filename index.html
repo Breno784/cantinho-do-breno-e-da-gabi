@@ -24,7 +24,6 @@
     }
 
     body {
-      /* Imagem do seu Fundo de Jornal em JPEG */
       background-image: url('fundo-jornal.jpeg');
       background-repeat: repeat;
       background-position: center;
@@ -41,7 +40,7 @@
       text-align: center;
       padding: 60px 20px 30px;
       border-bottom: 3px double var(--rosa-batom);
-      margin-bottom: 40px;
+      margin-bottom: 30px;
       position: relative;
       background: rgba(255, 255, 255, 0.25);
       backdrop-filter: blur(2px);
@@ -69,12 +68,62 @@
       position: relative;
     }
 
+    /* ESTILO NAVEGAÇÃO POR ABAS */
+    .nav-abas {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-bottom: 35px;
+    }
+
+    .btn-aba {
+      background: rgba(255, 255, 255, 0.85);
+      border: 1px solid var(--rosa-suave);
+      padding: 10px 18px;
+      font-family: 'Caveat', cursive;
+      font-size: 1.3rem;
+      color: var(--vinho-papel);
+      cursor: pointer;
+      border-radius: 6px;
+      box-shadow: 2px 3px 8px rgba(0,0,0,0.06);
+      transition: all 0.2s ease;
+    }
+
+    .btn-aba:hover {
+      background: #FFF;
+      transform: translateY(-2px);
+    }
+
+    .btn-aba.ativo {
+      background: var(--rosa-batom);
+      color: #FFF;
+      border-color: var(--rosa-batom);
+      transform: scale(1.05);
+      box-shadow: 3px 5px 12px rgba(199, 44, 65, 0.25);
+    }
+
+    /* CONTEÚDO DE CADA ABA */
+    .conteudo-aba {
+      display: none;
+    }
+
+    .conteudo-aba.ativo {
+      display: block;
+      animation: fadeIn 0.4s ease-in-out;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
     /* Cards de Papel Colado */
     .card {
       background: rgba(255, 255, 255, 0.92);
       border-radius: 4px;
       padding: 30px;
-      margin-bottom: 50px;
+      margin-bottom: 35px;
       box-shadow: 5px 8px 20px rgba(0,0,0,0.1);
       position: relative;
       border: 1px solid #E2D7CD;
@@ -167,7 +216,7 @@
     }
 
     /* Ajuste de Posições dos Elementos Decorativos */
-    .beijo-1 { top: -25px; right: -20px; width: 1000px; transform: rotate(15deg); }
+    .beijo-1 { top: -25px; right: -20px; width: 100px; transform: rotate(15deg); }
     .beijo-2 { bottom: -20px; left: -25px; width: 80px; transform: rotate(-20deg); }
     .coracao-1 { top: 15px; left: -30px; width: 60px; transform: rotate(-10deg); }
     .coracao-2 { bottom: 20px; right: -25px; width: 65px; transform: rotate(12deg); }
@@ -184,7 +233,7 @@
 <body>
 
   <header>
-    <!-- Espaço para Beijos / Corações no Cabeçalho (Adicione as imagens PNG com fundo transparente) -->
+    <!-- Espaço para Beijos / Corações no Cabeçalho -->
     <img src="beijo-topo.png" alt="" class="decoracao-flutuante beijo-1">
     <img src="coracao-topo.png" alt="" class="decoracao-flutuante coracao-1">
 
@@ -194,79 +243,120 @@
 
   <div class="container">
 
-    <!-- Nossos Momentos -->
-    <div class="card">
-      <!-- Espaço para adesivo/beijo na borda -->
-      <img src="beijo-batom.webp" alt="" class="decoracao-flutuante beijo-1">
-      
-      <h2>🌟 Nossos Momentos</h2>
-      
-      <div class="polaroide">
-        <img src="sua-foto-momentos.jpg" alt="Momentos">
-        <div class="legenda">Beijinho 😜</div>
-      </div>
-
-      <div class="lista-item">📸 <strong>Nosso primeiro encontro:</strong> [Escreva aqui essa memória]</div>
-      <div class="lista-item">🏖️ <strong>Nossa primeira viagem:</strong> [Lugar e data marcantes]</div>
+    <!-- BOTOES DAS ABAS -->
+    <div class="nav-abas">
+      <button class="btn-aba ativo" onclick="abrirAba('momentos', this)">🌟 Momentos</button>
+      <button class="btn-aba" onclick="abrirAba('conquistas', this)">🏆 Conquistas</button>
+      <button class="btn-aba" onclick="abrirAba('musicas', this)">🎵 Músicas</button>
+      <button class="btn-aba" onclick="abrirAba('salsichas', this)">🐾 Salsichas</button>
+      <button class="btn-aba" onclick="abrirAba('recadinho', this)">💌 Recadinho</button>
     </div>
 
-    <!-- Nossas Conquistas -->
-    <div class="card">
-      <img src="coracao-adesivo.png" alt="" class="decoracao-flutuante coracao-1">
-
-      <h2>🏆 Nossas Conquistas</h2>
-      
-      <div class="polaroide" style="transform: rotate(2deg);">
-        <img src="sua-foto-conquistas.jpg" alt="Foto Conquistas">
-        <div class="legenda">Mais um passo importante lado a lado! ✨</div>
+    <!-- ABA 1: NOSSOS MOMENTOS (COM 3 MOMENTOS) -->
+    <div id="momentos" class="conteudo-aba ativo">
+      <!-- Momento 1 -->
+      <div class="card">
+        <img src="beijo-batom.webp" alt="" class="decoracao-flutuante beijo-1">
+        <h2>🌟 Nosso 1º Momento</h2>
+        <div class="polaroide">
+          <img src="sua-foto-momentos.jpg" alt="Momentos 1">
+          <div class="legenda">Beijinho 😜</div>
+        </div>
+        <div class="lista-item">📸 <strong>Nosso primeiro encontro:</strong> [Escreva aqui essa memória]</div>
       </div>
 
-      <div class="lista-item">💍 O início da nossa história juntos</div>
-      <div class="lista-item">🎉 Cada vitória que comemoramos como um time</div>
-    </div>
-
-    <!-- Nossas Músicas -->
-    <div class="card">
-      <img src="beijo-batom-2.png" alt="" class="decoracao-flutuante beijo-2">
-
-      <h2>🎵 Nossas Músicas</h2>
-      <p style="margin-bottom: 15px; font-style: italic;">A trilha sonora do nosso amor:</p>
-      
-      <div class="lista-item">🎶 A música que sempre me faz lembrar do seu sorriso</div>
-      <div class="lista-item">💃 A música marcante do nosso namoro</div>
-    </div>
-
-    <!-- Cantinho dos Salsichas -->
-    <div class="card">
-      <img src="coracao-adesivo-2.png" alt="" class="decoracao-flutuante coracao-2">
-
-      <h2>🐾 Nossos Futuros Salsichas</h2>
-      
-      <div class="polaroide" style="transform: rotate(-1deg);">
-        <img src="sua-foto-salsichas.jpg" alt="Foto Salsichas">
-        <div class="legenda">Nosso futuro lar de quatro patas 🐶💛</div>
+      <!-- Momento 2 -->
+      <div class="card">
+        <img src="coracao-adesivo.png" alt="" class="decoracao-flutuante coracao-1">
+        <h2>🌟 Nosso 2º Momento</h2>
+        <div class="polaroide" style="transform: rotate(2deg);">
+          <img src="sua-foto-momentos-2.jpg" alt="Momentos 2">
+          <div class="legenda">Nossa primeira viagem juntos 🏖️</div>
+        </div>
+        <div class="lista-item">🏖️ <strong>Nossa primeira viagem:</strong> [Lugar e data marcantes]</div>
       </div>
 
-      <div class="cartinha">
-        "Agora uma promessa: Quando morarmos juntos, vamos ter dois salsichas fofinhos, prometo bb"
+      <!-- Momento 3 -->
+      <div class="card">
+        <img src="beijo-batom-2.png" alt="" class="decoracao-flutuante beijo-2">
+        <h2>🌟 Nosso 3º Momento</h2>
+        <div class="polaroide" style="transform: rotate(-1deg);">
+          <img src="sua-foto-momentos-3.jpg" alt="Momentos 3">
+          <div class="legenda">Sorrisos e momentos especiais 💖</div>
+        </div>
+        <div class="lista-item">🍕 <strong>Outra memória especial:</strong> [Escreva aqui sobre esse terceiro momento]</div>
       </div>
     </div>
 
-    <!-- Recadinhos pro Futuro -->
-    <div class="card">
-      <img src="beijo-batom.webp" alt="" class="decoracao-flutuante beijo-1">
+    <!-- ABA 2: NOSSAS CONQUISTAS -->
+    <div id="conquistas" class="conteudo-aba">
+      <div class="card">
+        <img src="coracao-adesivo.png" alt="" class="decoracao-flutuante coracao-1">
+        <h2>🏆 Nossas Conquistas</h2>
+        <div class="polaroide" style="transform: rotate(2deg);">
+          <img src="sua-foto-conquistas.jpg" alt="Foto Conquistas">
+          <div class="legenda">Mais um passo importante lado a lado! ✨</div>
+        </div>
+        <div class="lista-item">💍 O início da nossa história juntos</div>
+        <div class="lista-item">🎉 Cada vitória que comemoramos como um time</div>
+      </div>
+    </div>
 
-      <h2>💌 Recadinho pro futuro</h2>
-      <div class="cartinha">
-        "Para a minha bb, Gabi do futuro: espero que quando estiver lendo isso daqui a 8 ou 10 anos, a gente esteja ainda mais felizes, morando juntos e lembrando do começo de tudo com o maior carinho do mundo."
+    <!-- ABA 3: NOSSAS MÚSICAS -->
+    <div id="musicas" class="conteudo-aba">
+      <div class="card">
+        <img src="beijo-batom-2.png" alt="" class="decoracao-flutuante beijo-2">
+        <h2>🎵 Nossas Músicas</h2>
+        <p style="margin-bottom: 15px; font-style: italic;">A trilha sonora do nosso amor:</p>
+        <div class="lista-item">🎶 A música que sempre me faz lembrar do seu sorriso</div>
+        <div class="lista-item">💃 A música marcante do nosso namoro</div>
+      </div>
+    </div>
+
+    <!-- ABA 4: CANTINHO DOS SALSICHAS -->
+    <div id="salsichas" class="conteudo-aba">
+      <div class="card">
+        <img src="coracao-adesivo-2.png" alt="" class="decoracao-flutuante coracao-2">
+        <h2>🐾 Nossos Futuros Salsichas</h2>
+        <div class="polaroide" style="transform: rotate(-1deg);">
+          <img src="sua-foto-salsichas.jpg" alt="Foto Salsichas">
+          <div class="legenda">Nosso futuro lar de quatro patas 🐶💛</div>
+        </div>
+        <div class="cartinha">
+          "Agora uma promessa: Quando morarmos juntos, vamos ter dois salsichas fofinhos, prometo bb"
+        </div>
+      </div>
+    </div>
+
+    <!-- ABA 5: RECADINHO PRO FUTURO -->
+    <div id="recadinho" class="conteudo-aba">
+      <div class="card">
+        <img src="beijo-batom.webp" alt="" class="decoracao-flutuante beijo-1">
+        <h2>💌 Recadinho pro futuro</h2>
+        <div class="cartinha">
+          "Para a minha bb: espero que daqui uns 8 ou 10 anos, quando estivermos casados, morando juntos, mural faça a gente lembrar do início com carinho 💕"
+        </div>
       </div>
     </div>
 
   </div>
 
   <footer>
-    Com todo o meu amor para você, Gabi ❤️✨
+    Pra você, bb! Eu te amo, minha vida! ❤️🤗
   </footer>
+
+  <script>
+    function abrirAba(idAba, elementoBotao) {
+      const conteudos = document.querySelectorAll('.conteudo-aba');
+      conteudos.forEach(conteudo => conteudo.classList.remove('ativo'));
+
+      const botoes = document.querySelectorAll('.btn-aba');
+      botoes.forEach(botao => botao.classList.remove('ativo'));
+
+      document.getElementById(idAba).classList.add('ativo');
+      elementoBotao.classList.add('ativo');
+    }
+  </script>
 
 </body>
 </html>
