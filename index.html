@@ -3,196 +3,259 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Nosso Cantinho 💛 Gabi & Você</title>
+  <title>Nosso Diário de Memórias 💖 Gabi & Você</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@600&family=Playfair+Display:ital,wght@0,600;1,400&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+  
   <style>
     :root {
-      --amarelo-suave: #FFF4D0;
-      --amarelo-quente: #E0A926;
-      --laranja-terroso: #D97736;
-      --rosa-queimado: #C85A72;
-      --fundo: #FFFBF5;
-      --texto: #4A3E3D;
-      --card-fundo: #FFFFFF;
+      --rosa-batom: #C72C41;
+      --rosa-suave: #F8B195;
+      --vinho-papel: #5C2533;
+      --papel-jornal: #F4EAE1;
+      --texto-jornal: #2B2625;
+      --fita-adesiva: rgba(255, 255, 255, 0.6);
     }
 
     * {
       box-sizing: border-box;
       margin: 0;
       padding: 0;
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     }
 
     body {
-      background-color: var(--fundo);
-      color: var(--texto);
+      /* Fundo com textura e estilo de papel vintage de jornal */
+      background-color: var(--papel-jornal);
+      background-image: 
+        radial-gradient(rgba(0, 0, 0, 0.04) 1px, transparent 0),
+        linear-gradient(to right, rgba(199, 44, 65, 0.05) 1px, transparent 1px);
+      background-size: 20px 20px, 100% 30px;
+      color: var(--texto-jornal);
+      font-family: 'Poppins', sans-serif;
       line-height: 1.6;
-      padding-bottom: 50px;
+      padding-bottom: 60px;
     }
 
+    /* Cabeçalho estilo capa de jornal/diário */
     header {
-      background: linear-gradient(135deg, var(--amarelo-quente), var(--laranja-terroso), var(--rosa-queimado));
-      color: white;
       text-align: center;
-      padding: 60px 20px;
-      border-bottom-left-radius: 30px;
-      border-bottom-right-radius: 30px;
-      box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+      padding: 50px 20px 30px;
+      border-bottom: 3px double var(--rosa-batom);
+      margin-bottom: 40px;
+      position: relative;
+      background: rgba(255, 255, 255, 0.4);
     }
 
     header h1 {
-      font-size: 2.5rem;
-      margin-bottom: 10px;
-      font-weight: bold;
+      font-family: 'Playfair Display', serif;
+      font-size: 2.8rem;
+      color: var(--vinho-papel);
+      text-transform: uppercase;
+      letter-spacing: 2px;
     }
 
     header p {
-      font-size: 1.2rem;
-      opacity: 0.95;
+      font-family: 'Caveat', cursive;
+      font-size: 1.8rem;
+      color: var(--rosa-batom);
     }
 
-    .coracoes-topo {
-      font-size: 1.5rem;
-      margin-top: 10px;
+    .beijo-decorativo {
+      position: absolute;
+      font-size: 2.5rem;
+      opacity: 0.8;
+      user-select: none;
     }
 
+    .beijo-1 { top: 15px; left: 10%; transform: rotate(-15deg); }
+    .beijo-2 { bottom: 10px; right: 12%; transform: rotate(20deg); }
+
+    /* Layout principal */
     .container {
-      max-width: 800px;
-      margin: 30px auto;
+      max-width: 750px;
+      margin: 0 auto;
       padding: 0 20px;
     }
 
+    /* Cards no estilo retalho/papel colado */
     .card {
-      background: var(--card-fundo);
-      border-radius: 20px;
-      padding: 25px;
-      margin-bottom: 25px;
-      box-shadow: 0 4px 12px rgba(217, 119, 54, 0.08);
-      border-left: 6px solid var(--laranja-terroso);
-      transition: transform 0.2s ease;
+      background: #FFFFFF;
+      border-radius: 4px;
+      padding: 30px;
+      margin-bottom: 40px;
+      box-shadow: 5px 8px 20px rgba(0,0,0,0.08);
+      position: relative;
+      border: 1px solid #E2D7CD;
     }
 
-    .card:hover {
-      transform: translateY(-3px);
-    }
-
-    .card.rosa {
-      border-left-color: var(--rosa-queimado);
-    }
-
-    .card.amarelo {
-      border-left-color: var(--amarelo-quente);
+    /* Efeito de Fita Adesiva colando o card */
+    .card::before {
+      content: "";
+      position: absolute;
+      top: -12px;
+      left: 35%;
+      width: 110px;
+      height: 25px;
+      background: var(--fita-adesiva);
+      border: 1px solid rgba(0,0,0,0.05);
+      transform: rotate(-2deg);
+      box-shadow: 0 2px 4px rgba(0,0,0,0.05);
     }
 
     .card h2 {
-      color: var(--texto);
-      font-size: 1.5rem;
+      font-family: 'Playfair Display', serif;
+      color: var(--vinho-papel);
+      font-size: 1.8rem;
       margin-bottom: 15px;
-      display: flex;
-      align-items: center;
-      gap: 10px;
+      border-bottom: 2px dashed var(--rosa-suave);
+      padding-bottom: 8px;
     }
 
+    /* Estilo Polaroide para as fotos */
+    .polaroide {
+      background: #FFF;
+      padding: 12px 12px 35px 12px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+      margin: 20px auto;
+      max-width: 90%;
+      transform: rotate(-2deg);
+      transition: transform 0.3s ease;
+    }
+
+    .polaroide:hover {
+      transform: rotate(0deg) scale(1.02);
+    }
+
+    .polaroide img {
+      width: 100%;
+      height: 280px;
+      object-fit: cover;
+      display: block;
+      filter: sepia(10%);
+    }
+
+    .polaroide .legenda {
+      font-family: 'Caveat', cursive;
+      font-size: 1.4rem;
+      text-align: center;
+      color: var(--vinho-papel);
+      margin-top: 10px;
+    }
+
+    /* Listas estilo diário */
     .lista-item {
-      background: var(--amarelo-suave);
+      background: #FAF4EF;
       padding: 12px 18px;
-      border-radius: 12px;
+      border-radius: 8px;
       margin-bottom: 10px;
-      display: flex;
-      align-items: center;
-      gap: 10px;
+      border-left: 4px solid var(--rosa-batom);
+      font-size: 0.95rem;
     }
 
+    /* Carta escrita à mão */
     .cartinha {
-      background: #FFF0F3;
-      border: 2px dashed var(--rosa-queimado);
-      border-radius: 15px;
-      padding: 20px;
-      font-style: italic;
-      color: #5A3540;
+      background: #FFFDF9;
+      border: 1px solid #EADCD0;
+      padding: 25px;
+      border-radius: 5px;
+      font-family: 'Caveat', cursive;
+      font-size: 1.6rem;
+      color: var(--vinho-papel);
+      line-height: 1.4;
+      position: relative;
+    }
+
+    .cartinha::after {
+      content: "💋";
+      position: absolute;
+      bottom: 10px;
+      right: 15px;
+      font-size: 2rem;
+      opacity: 0.85;
     }
 
     footer {
       text-align: center;
-      color: var(--rosa-queimado);
-      font-weight: bold;
-      margin-top: 40px;
+      font-family: 'Caveat', cursive;
+      font-size: 1.8rem;
+      color: var(--rosa-batom);
+      margin-top: 50px;
     }
   </style>
 </head>
 <body>
 
   <header>
-    <h1>Nosso Cantinho 💛 Gabi & Você</h1>
-    <p>Colecionando momentos, memórias e o nosso amor</p>
-    <div class="coracoes-topo">💖 🐾 🧡 💖 🐾 🧡</div>
+    <span class="beijo-decorativo beijo-1">💋</span>
+    <span class="beijo-decorativo beijo-2">💋</span>
+    <h1>Nosso Diário de Memórias</h1>
+    <p>Para o meu amor, Gabi 💖</p>
   </header>
 
   <div class="container">
 
     <!-- Nossos Momentos -->
-    <div class="card amarelo">
+    <div class="card">
       <h2>🌟 Nossos Momentos</h2>
-      <p>Um espaço para guardar nossos encontros, viagens e dias inesquecíveis juntas/os.</p>
-      <br>
-      <div class="lista-item">📸 <strong>Nosso primeiro encontro:</strong> [Escreva aqui como foi]</div>
-      <div class="lista-item">🏖️ <strong>Nossa primeira viagem:</strong> [Lugar e data]</div>
-      <div class="lista-item">🍕 <strong>O dia mais engraçado juntos:</strong> [Adicione a história]</div>
+      
+      <div class="polaroide">
+        <img src="sua-foto-momentos.jpg" alt="Foto Nossos Momentos">
+        <div class="legenda">A gente juntos no nosso lugar favorito 📸</div>
+      </div>
+
+      <div class="lista-item">📸 <strong>Nosso primeiro encontro:</strong> [Escreva aqui essa memória]</div>
+      <div class="lista-item">🏖️ <strong>Nossa primeira viagem:</strong> [Lugar e data marcantes]</div>
     </div>
 
     <!-- Nossas Conquistas -->
-    <div class="card rosa">
+    <div class="card">
       <h2>🏆 Nossas Conquistas</h2>
-      <p>Tudo o que construímos e superamos lado a lado!</p>
-      <br>
-      <div class="lista-item">💍 O início do nosso namoro</div>
-      <div class="lista-item">🎉 Conquistas individuais que comemoramos juntos</div>
-      <div class="lista-item">✨ Cada passo rumo aos nossos planos futuros</div>
+      
+      <div class="polaroide" style="transform: rotate(2deg);">
+        <img src="sua-foto-conquistas.jpg" alt="Foto Conquistas">
+        <div class="legenda">Mais um passo importante lado a lado! ✨</div>
+      </div>
+
+      <div class="lista-item">💍 O início da nossa história juntos</div>
+      <div class="lista-item">🎉 Cada vitória que comemoramos como um time</div>
     </div>
 
     <!-- Nossas Músicas -->
     <div class="card">
       <h2>🎵 Nossas Músicas</h2>
-      <p>A trilha sonora da nossa história de amor:</p>
-      <br>
-      <div class="lista-item">🎶 A música que me faz lembrar de você</div>
-      <div class="lista-item">💃 A música do nosso namoro</div>
-      <div class="lista-item">🎧 Nossa playlist para viagens de carro</div>
-    </div>
-
-    <!-- Nossa Família e Amigos -->
-    <div class="card rosa">
-      <h2>👨‍👩‍👧 Nossa Família e Amor</h2>
-      <p>As pessoas especiais que fazem parte do nosso caminho.</p>
-      <br>
-      <div class="cartinha">
-        "Com você, construir memórias é a melhor parte dos meus dias." 💖
-      </div>
+      <p style="margin-bottom: 15px; font-style: italic;">A trilha sonora do nosso amor:</p>
+      
+      <div class="lista-item">🎶 A música que sempre me faz lembrar do seu sorriso</div>
+      <div class="lista-item">💃 A música marcante do nosso namoro</div>
     </div>
 
     <!-- Cantinho dos Salsichas -->
-    <div class="card amarelo">
+    <div class="card">
       <h2>🐾 Nossos Futuros Salsichas</h2>
-      <p>Nosso projeto de vida para daqui a alguns anos!</p>
-      <br>
-      <div class="cartinha" style="background: #FFFDF0; border-color: var(--amarelo-quente); color: #5A4818;">
-        🐶 <strong>Nosso Sonho:</strong> Quando morarmos juntos na nossa casinha, vamos ter nossos cachorrinhos salsichas (Dachshunds) correndo pela sala! Vai ser o nosso lar perfeito! 🐾💛
+      
+      <div class="polaroide" style="transform: rotate(-1deg);">
+        <img src="sua-foto-salsichas.jpg" alt="Foto Salsichas">
+        <div class="legenda">Nosso futuro lar de quatro patas 🐶💛</div>
+      </div>
+
+      <div class="cartinha">
+        "Promessa escrita no papel: quando morarmos juntos, a nossa casa vai ser cheia de cachorrinhos salsichas correndo pela sala e trazendo mais alegria para a nossa vida!"
       </div>
     </div>
 
     <!-- Recadinhos pro Futuro -->
-    <div class="card rosa">
-      <h2>💌 Recadinhos pro Futuro</h2>
-      <p>Para abrirmos e lermos daqui a 8 ou 10 anos...</p>
-      <br>
+    <div class="card">
+      <h2>💌 Recadinho pro Futuro</h2>
       <div class="cartinha">
-        "Para a Gabi do futuro: espero que quando estiver lendo isso, a gente já esteja morando juntos, rodeados de salsichinhas e ainda mais felizes do que no dia em que criei este site para você." ✨🌸
+        "Para a minha bb, Gabi do futuro: espero que quando estiver lendo isso daqui a 8 ou 10 anos, a gente esteja ainda mais felizes, morando juntos e lembrando do começo de tudo com o maior carinho do mundo."
       </div>
     </div>
 
   </div>
 
   <footer>
-    Feito com todo o amor do mundo para a Gabi 💖
+    Com todo o meu amor para você, Gabi 💋✨
   </footer>
 
 </body>
