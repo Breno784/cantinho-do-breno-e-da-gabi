@@ -288,7 +288,7 @@
 
       <!-- Momento 2 -->
       <div class="card">
-        <img src="coracao-adesivo.png" alt="" class="decoracao-flutuante coracao-1">
+        <img src="coracao-adesivo.avif" alt="" class="decoracao-flutuante coracao-1">
         <h2>🌟 Nosso 2º Momento</h2>
         <div class="polaroide" style="transform: rotate(2deg);">
           <img src="sua-foto-momentos-2.jpg" alt="Momentos 2">
@@ -312,7 +312,7 @@
     <!-- ABA 2: NOSSAS CONQUISTAS -->
     <div id="conquistas" class="conteudo-aba">
       <div class="card">
-        <img src="coracao-adesivo.png" alt="" class="decoracao-flutuante coracao-1">
+        <img src="coracao-adesivo.avif" alt="" class="decoracao-flutuante coracao-1">
         <h2>🏆 Nossas Conquistas</h2>
         <div class="polaroide" style="transform: rotate(2deg);">
           <img src="sua-foto-conquistas.jpg" alt="Foto Conquistas">
@@ -380,17 +380,27 @@
   </footer>
 
   <script>
-    function abrirAba(idAba, elementoBotao) {
-      const conteudos = document.querySelectorAll('.conteudo-aba');
-      conteudos.forEach(conteudo => conteudo.classList.remove('ativo'));
+  function abrirAba(idAba, elementoBotao) {
+    // 1. Esconde todas as abas
+    const conteudos = document.querySelectorAll('.conteudo-aba');
+    conteudos.forEach(conteudo => conteudo.classList.remove('ativo'));
 
-      const botoes = document.querySelectorAll('.btn-aba');
-      botoes.forEach(botao => botao.classList.remove('ativo'));
+    // 2. Remove o destaque dos botões
+    const botoes = document.querySelectorAll('.btn-aba');
+    botoes.forEach(botao => botao.classList.remove('ativo'));
 
-      document.getElementById(idAba).classList.add('ativo');
-      elementoBotao.classList.add('ativo');
+    // 3. Ativa a aba e o botão selecionado
+    document.getElementById(idAba).classList.add('ativo');
+    elementoBotao.classList.add('ativo');
+
+    // 4. Troca a imagem de fundo do site se for a aba dos Salsichas
+    if (idAba === 'salsichas') {
+      document.body.style.backgroundImage = "url('fundo-salsichas.jpeg')";
+    } else {
+      document.body.style.backgroundImage = "url('fundo-jornal.jpeg')";
     }
-  </script>
+  }
+</script>
 
 </body>
 </html>
